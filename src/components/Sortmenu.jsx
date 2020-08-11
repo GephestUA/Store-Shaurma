@@ -40,19 +40,19 @@ export default function Sortmenu({ items, }) {
           />
         </svg>
         <b>Сортировка по:</b>
-        <span onClick={toggleSotrMenu}>{items[activeElement]}</span>
+        <span onClick={toggleSotrMenu}>{items[activeElement].name}</span>
       </div>
       {visibleMenu && (
         <div className="sort__popup">
           <ul>
             {items &&
-              items.map((item, index) => (
+              items.map((obj, index) => (
                 <li
                   className={activeElement === index ? "active" : ""}
-                  key={`${item}_${index}`}
+                  key={`${obj.type}_${index}`}
                   onClick={() => onSelectItem(index)}
                 >
-                  {item}
+                  {obj.name}
                 </li>
               ))}
           </ul>
